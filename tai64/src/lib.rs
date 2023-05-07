@@ -33,6 +33,8 @@ const NANOS_PER_SECOND: u32 = 1_000_000_000;
 
 /// A `TAI64` label.
 #[derive(Copy, Clone, Debug, Eq, Hash, PartialEq, PartialOrd, Ord)]
+#[cfg_attr(feature = "rkyv", derive(rkyv::Archive, rkyv::Serialize, rkyv::Deserialize))]
+#[cfg_attr(feature = "rkyv", archive(check_bytes))]
 pub struct Tai64(pub u64);
 
 impl Tai64 {
@@ -140,6 +142,8 @@ impl Zeroize for Tai64 {
 ///
 /// Invariant: The nanosecond part <= 999999999.
 #[derive(Copy, Clone, Debug, Eq, Hash, PartialEq, PartialOrd, Ord)]
+#[cfg_attr(feature = "rkyv", derive(rkyv::Archive, rkyv::Serialize, rkyv::Deserialize))]
+#[cfg_attr(feature = "rkyv", archive(check_bytes))]
 pub struct Tai64N(pub Tai64, pub u32);
 
 #[cfg(feature = "zeroize")]
