@@ -12,14 +12,13 @@ edition = "2021"
 rust-version = "1.60"
 
 [dependencies]
-rkyv = { version = "0.7", optional = true }
+rkyv = { version = "0.7", optional = true, features = ["validation"] }
 serde = { version = "1", optional = true, default-features = false }
 zeroize = { version = "1.6", optional = true, default-features = false }
 
 [features]
 default = ["std"]
 std = []
-rkyv = ["dep:rkyv", "rkyv/validation"]
 
 [package.metadata.docs.rs]
 all-features = true
