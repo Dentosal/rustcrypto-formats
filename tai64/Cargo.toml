@@ -19,6 +19,7 @@ zeroize = { version = "1.6", optional = true, default-features = false }
 [features]
 default = ["std"]
 std = []
+rkyv = ["dep:rkyv"]
 
 [package.metadata.docs.rs]
 all-features = true
